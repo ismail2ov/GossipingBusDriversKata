@@ -44,8 +44,15 @@ public class BusDriver {
     }
 
     public void learnGossipOf(BusDriver busDriver) {
-        this.knowGossips.add(busDriver.getGossip());
-        busDriver.addGossip(this.myGossip);
+        for (Gossip gossip : busDriver.getKnownGossips()) {
+            if (!this.knowGossips.contains(gossip)) {
+                this.knowGossips.add(gossip);
+            }
+        }
+    }
+
+    private Set<Gossip> getKnownGossips() {
+        return this.knowGossips;
     }
 
     private void addGossip(Gossip gossip) {

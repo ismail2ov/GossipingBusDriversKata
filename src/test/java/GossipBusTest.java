@@ -17,6 +17,6 @@ public class GossipBusTest {
 
         Integer actual = drive.startWork();
 
-        assert (actual).equals(7);
+        assert (actual).equals(5);
     }
 }

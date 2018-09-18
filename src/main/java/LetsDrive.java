@@ -13,21 +13,21 @@ public class LetsDrive {
         do {
             driversTellGossips();
             bussesDrive();
-            iterations++;
+            this.iterations++;
         } while (allDriverDontKnowAllGosips());
 
         return this.iterations;
     }
 
     private void bussesDrive() {
-        for (BusDriver driver : drivers) {
+        for (BusDriver driver : this.drivers) {
             driver.drive();
         }
     }
 
     private void driversTellGossips() {
-        for (BusDriver driver : drivers) {
-            for (BusDriver busDriver : drivers) {
+        for (BusDriver driver : this.drivers) {
+            for (BusDriver busDriver : this.drivers) {
                 if (driver.notSame(busDriver) && driver.inSameStop(busDriver)) {
                     talk(driver, busDriver);
                 }
@@ -37,11 +37,12 @@ public class LetsDrive {
 
     private void talk(BusDriver driver, BusDriver busDriver) {
         driver.learnGossipOf(busDriver);
+        busDriver.learnGossipOf(driver);
     }
 
     private boolean allDriverDontKnowAllGosips() {
-        for (BusDriver driver : drivers) {
-            if (driver.knowNumSecrets() != drivers.size()) {
+        for (BusDriver driver : this.drivers) {
+            if (driver.knowNumSecrets() != this.drivers.size()) {
                 return true;
             }
         }
