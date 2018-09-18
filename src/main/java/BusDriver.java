@@ -54,13 +54,4 @@ public class BusDriver {
     private Set<Gossip> getKnownGossips() {
         return this.knowGossips;
     }
-
-    private void addGossip(Gossip gossip) {
-        this.knowGossips.add(gossip);
-
-    }
-
-    private Gossip getGossip() {
-        return this.myGossip;
-    }
 }
