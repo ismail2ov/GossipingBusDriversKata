@@ -10,6 +10,6 @@ public class BusRoute {
     }
 
     public int getStopId(int stop) {
-        return this.stops[stop];
+        return this.stops[stop - 1];
     }
 }

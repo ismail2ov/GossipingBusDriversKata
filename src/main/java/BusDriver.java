@@ -8,18 +8,17 @@ public class BusDriver {
     private Set<Gossip> knowGossips = new HashSet<>();
     private Gossip myGossip;
 
-
     public BusDriver(int id, BusRoute busRoute) {
         this.id = id;
         this.busRoute = busRoute;
         this.stop = 1;
         this.myGossip = new Gossip(this.id);
-        this.knowGossips.add(myGossip);
+        this.knowGossips.add(this.myGossip);
     }
 
-    public void drive(){
+    public void drive() {
         this.stop++;
-        if(this.stop > busRoute.getNumStop()-1){
+        if (this.stop > this.busRoute.getNumStop()) {
             this.stop = 1;
         }
     }
@@ -41,7 +40,7 @@ public class BusDriver {
     }
 
     private int getCurrentStop() {
-        return busRoute.getStopId(this.stop);
+        return this.busRoute.getStopId(this.stop);
     }
 
     public void learnGossipOf(BusDriver busDriver) {
@@ -55,6 +54,6 @@ public class BusDriver {
     }
 
     private Gossip getGossip() {
-        return myGossip;
+        return this.myGossip;
     }
 }
