@@ -32,6 +32,26 @@ public class IntegrationTest {
         assert (actual).equals(-1);
     }
 
+    @Test
+    public void whenTheDriverIsAloneTest() {
+        BusDriver driver1 = buildBusDriver(1, buildRouteStops(2, 1, 2));
+
+        LetsDrive drive = new LetsDrive();
+        drive.add(driver1);
+
+        Integer actual = drive.startWork();
+
+        assert (actual).equals(1);
+    }
+
+    @Test
+    public void whenThereIsNoDriverTest() {
+        LetsDrive drive = new LetsDrive();
+        Integer actual = drive.startWork();
+
+        assert (actual).equals(-1);
+    }
+
     private BusDriver buildBusDriver(int id, BusRoute busRoute) {
         return new BusDriver(id, busRoute);
     }

@@ -32,11 +32,14 @@ public class LetsDrive {
         if (this.iterations > MAX_LAPS) {
             return true;
         }
-        
+
         return false;
     }
 
     private Integer getRouteLength() {
+        if (this.drivers.isEmpty()) {
+            return 0;
+        }
         return this.drivers.iterator().next().getRouteLength();
     }
 
