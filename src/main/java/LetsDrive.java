@@ -2,6 +2,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class LetsDrive {
+    public static final int MAX_LAPS = 480;
     private Set<BusDriver> drivers = new HashSet<>();
     private Integer iterations = 0;
 
@@ -14,6 +15,9 @@ public class LetsDrive {
             driversTellGossips();
             bussesDrive();
             this.iterations++;
+            if (this.iterations > MAX_LAPS) {
+                return -1;
+            }
         } while (allDriverDontKnowAllGosips());
 
         return this.iterations;

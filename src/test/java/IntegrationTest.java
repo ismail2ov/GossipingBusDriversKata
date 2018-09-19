@@ -19,4 +19,18 @@ public class IntegrationTest {
 
         assert (actual).equals(5);
     }
+
+    @Test
+    public void theDriversWillNeverNnowAllTheGossipTest() {
+        BusDriver driver1 = new BusDriver(1, new BusRoute(new int[] { 2, 1, 2 }));
+        BusDriver driver2 = new BusDriver(2, new BusRoute(new int[] { 5, 2, 8 }));
+
+        LetsDrive drive = new LetsDrive();
+        drive.add(driver1);
+        drive.add(driver2);
+
+        Integer actual = drive.startWork();
+
+        assert (actual).equals(-1);
+    }
 }
