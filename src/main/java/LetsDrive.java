@@ -11,16 +11,40 @@ public class LetsDrive {
     }
 
     public Integer startWork() {
+        boolean allDriversHaveRouteSameLength = allDriversHaveRouteSameLength();
         do {
             driversTellGossips();
             bussesDrive();
             this.iterations++;
+            if (allDriversHaveRouteSameLength && this.iterations > getRouteLength()) {
+                return -1;
+            }
             if (this.iterations > MAX_LAPS) {
                 return -1;
             }
         } while (allDriverDontKnowAllGosips());
 
         return this.iterations;
+    }
+
+    private Integer getRouteLength() {
+        return this.drivers.iterator().next().getRouteLength();
+    }
+
+    private boolean allDriversHaveRouteSameLength() {
+        int routeLength = 0;
+
+        for (BusDriver driver : this.drivers) {
+            if (driver.getRouteLength() != routeLength) {
+                if (routeLength == 0) {
+                    routeLength = driver.getRouteLength();
+                } else {
+                    return false;
+                }
+            }
+
+        }
+        return true;
     }
 
     private void bussesDrive() {

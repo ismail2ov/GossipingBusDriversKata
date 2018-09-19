@@ -12,4 +12,8 @@ public class BusRoute {
     public int getStopId(int stop) {
         return this.stops[stop - 1];
     }
+
+    public int getRouteLength() {
+        return this.stops.length;
+    }
 }

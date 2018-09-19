@@ -54,4 +54,8 @@ public class BusDriver {
     private Set<Gossip> getKnownGossips() {
         return this.knowGossips;
     }
+
+    public int getRouteLength() {
+        return this.busRoute.getRouteLength();
+    }
 }
