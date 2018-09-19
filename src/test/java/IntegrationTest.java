@@ -5,7 +5,7 @@ public class IntegrationTest {
 
 
     @Test
-    public void busDriversIntegrationTest() {
+    public void allDriversKnowAllTheGossipTest() {
         BusDriver driver1 = new BusDriver(1, new BusRoute(new int[]{3,1,2,3}));
         BusDriver driver2 = new BusDriver(2, new BusRoute(new int[]{3,2,3,1}));
         BusDriver driver3 = new BusDriver(3, new BusRoute(new int[]{4,2,3,4,5}));
